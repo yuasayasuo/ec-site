@@ -23,11 +23,6 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to book_url(Book.last)
   end
 
-  test "should show book" do
-    get book_url(@book)
-    assert_response :success
-  end
-
   test "should get edit" do
     get edit_book_url(@book)
     assert_response :success
