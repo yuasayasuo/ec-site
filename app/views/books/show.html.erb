@@ -34,7 +34,9 @@
   <%= @book.tags.map(&:name).join(', ') %>
 </p>
 
+<% if @book.picture.file? %>
 <%= image_tag(@book.picture, width: 300) %>
+<% end %>
 
 <%= link_to t('.edit'), edit_book_path(@book) %> |
 <%= link_to t('.back'), books_path %>
