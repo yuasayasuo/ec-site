@@ -35,6 +35,15 @@
     <%= form.label :price %>
     <%= form.number_field :price, id: :book_price %>
   </div>
+  
+  <div class="field">
+    <%= #collection_check_boxes :tag_ids, @tags.all, @tags.id %>
+    <%= #form.label :tags %>
+    <% #@tags.each do |tag| %>
+      <%= #check_box_tag name: 'book[tag_ids][]', value: tag.id %>
+      <%= #tag.name %>
+    <% #end %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
