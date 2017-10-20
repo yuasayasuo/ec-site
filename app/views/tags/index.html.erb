@@ -2,6 +2,8 @@
 
 <h1>Tags</h1>
 
+<p><%= current_user.email %> でログイン中</p>
+
 <table>
   <thead>
     <tr>
@@ -25,3 +27,5 @@
 <br>
 
 <%= link_to 'New Tag', new_tag_path %>
+<br>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
