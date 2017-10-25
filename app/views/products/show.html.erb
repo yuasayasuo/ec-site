@@ -1,2 +1,36 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<p>
+  <strong><%= Book.human_attribute_name('title') %>:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong><%= Book.human_attribute_name('author') %>:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong><%= Book.human_attribute_name('published_on') %>:</strong>
+  <%= @book.published_on %>
+</p>
+
+<p>
+  <strong><%= Book.human_attribute_name('price') %>:</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong><%= Tag.human_attribute_name('name') %>:</strong>
+  <%= @book.tags.map(&:name).join(', ') %>
+</p>
+
+<% if @book.picture.file? %>
+<%= image_tag(@book.picture, width: 300) %>
+<% end %>
+
+<%= link_to t('.back'), products_path %>
