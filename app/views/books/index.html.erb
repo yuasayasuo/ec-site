@@ -2,6 +2,8 @@
 
 <h1>Books</h1>
 
+<p><%= current_user.email %> でログイン中</p>
+
 <table>
   <thead>
     <tr>
@@ -33,3 +35,5 @@
 <br>
 
 <%= link_to 'New Book', new_book_path %>
+<br>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
