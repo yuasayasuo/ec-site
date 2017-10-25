@@ -4,23 +4,29 @@ class OrdersController < ApplicationController
     @order = current_user.orders.new(book: @book)
   end
   
+  def show
+  end
+  
   def create
     @order = current_user.orders.new(order_params)
     @book = @order.book
     
-    if @order.save
-      redirect_to confirm_orders_path
-    else
+    if params[:back].present?
       render :new
+    else
+      if @order.save
+        redirect_to products_path, notice:'注文が完了しました。'
+      end
     end
   end
   
   def confirm
     @order = current_user.orders.new(order_params)
+    @book = @order.book
   end
 
   private
     def order_params
-      params.require(:order).permit(:book_id, :addrss, :quantity)
+      params.require(:order).permit(:book_id, :address, :quantity)
     end
 end

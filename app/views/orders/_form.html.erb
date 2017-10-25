@@ -1,4 +1,4 @@
-<%= form_with(model: order, local: true) do |form| %>
+<%= form_with(model: order, local: true, url: confirm_orders_path) do |form| %>
   <% if order.errors.any? %>
     <div class="card border-danger">
       <div class="card-header bg-danger text-white">
@@ -30,6 +30,6 @@
     <%= form.text_field :address, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= form.submit class: "btn btn-sm" %>
+    <%= form.submit '注文する', class: "btn btn-sm" %>
   </div>
 <% end %>
