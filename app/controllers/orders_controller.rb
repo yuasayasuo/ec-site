@@ -9,10 +9,14 @@ class OrdersController < ApplicationController
     @book = @order.book
     
     if @order.save
-      redirect_to products_path
+      redirect_to confirm_orders_path
     else
       render :new
     end
+  end
+  
+  def confirm
+    @order = current_user.orders.new(order_params)
   end
 
   private
