@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'orders/new'
+
   devise_for :users
   resources :taggings
   resources :tags, expect: :show
