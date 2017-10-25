@@ -55,9 +55,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
      enable_starttls_auto: true,
-     address: 'agileware.sakura.ne.jp',
+     address: 'smtp.gmail.com',
      port: '587',
-     domain: 'agileware.sakura.ne.jp',
+     domain: 'smtp.gmail.com',
      authentication: 'plain',
      user_name: ENV['MAIL_USER_NAME'],
      password: ENV['MAIL_PASSWORD']
