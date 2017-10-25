@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
       render :new
     else
       if @order.save
+        EcSiteMailer.registration_mail(current_user, @order).deliver
         redirect_to products_path, notice:'注文が完了しました。'
       end
     end

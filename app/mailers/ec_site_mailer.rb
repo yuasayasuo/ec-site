@@ -5,9 +5,9 @@ class EcSiteMailer < ApplicationMailer
   #
   #   en.ec_site_mailer.ragistration_mail.subject
   #
-  def ragistration_mail
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def registration_mail(user, order)
+    @user = user
+    @order = order
+    mail to: @user.email, subject: '注文完了のお知らせ'
   end
 end
