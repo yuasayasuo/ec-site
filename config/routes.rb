@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'products/show'
+
   devise_for :users
   resources :taggings
   resources :tags, expect: :show
