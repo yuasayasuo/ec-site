@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   def new
     @book = Book.find(params[:book_id])
     @order = current_user.orders.new(book: @book)
@@ -9,6 +10,7 @@ class OrdersController < ApplicationController
   
   def create
     @order = current_user.orders.new(order_params)
+    @order.status = 'ordered'
     @book = @order.book
     
     if params[:back].present?
@@ -28,6 +30,6 @@ class OrdersController < ApplicationController
 
   private
     def order_params
-      params.require(:order).permit(:book_id, :address, :quantity)
+      params.require(:order).permit(:book_id, :address, :quantity, :status)
     end
 end
