@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   
   def create
     @order = current_user.orders.new(order_params)
+    @order.status = 'ordered'
     @book = @order.book
     
     if params[:back].present?
