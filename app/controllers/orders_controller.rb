@@ -1,9 +1,5 @@
 class OrdersController < ApplicationController
 
-  def index
-    @orders = Order.all
-  end
-
   def new
     @book = Book.find(params[:book_id])
     @order = current_user.orders.new(book: @book)
@@ -27,18 +23,6 @@ class OrdersController < ApplicationController
     end
   end
   
-  def edit
-    @order = Order.find(params[:id])
-  end
-  
-  def update
-    @order = Order.find(params[:id])
-
-    if @order.update(order_params)
-      redirect_to orders_path, notice:'注文ステータスを変更しました。'
-    end
-  end
-
   def confirm
     @order = current_user.orders.new(order_params)
     @book = @order.book

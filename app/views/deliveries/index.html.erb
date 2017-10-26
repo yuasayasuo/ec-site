@@ -1,0 +1,33 @@
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>注文確認</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ユーザ</th>
+      <th>配送先</th>
+      <th>商品</th>
+      <th>数量</th>
+      <th>ステータス</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= User.all.find_by(id: order.user_id).email %></td>
+        <td><%= order.address %></td>
+        <td><%= Book.all.find_by(id: order.book_id).title %></td>
+        <td><%= order.quantity %></td>
+        <td><%= order.status %></td>
+        <td><%= link_to '編集', edit_delivery_path(order) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
