@@ -1,0 +1,17 @@
+<h1>カート内容一覧</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>商品</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart_contents.each do |id| %>
+      <tr>
+        <td><%= Book.all.find_by(id: id).title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
