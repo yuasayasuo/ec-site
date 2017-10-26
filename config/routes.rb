@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :taggings
   resources :tags, expect: :show
   resources :books
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :update]
   resources :orders, only: [:new, :create, :show] do
     collection do
       post :confirm
