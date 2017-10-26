@@ -30,6 +30,14 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
   
+  def update
+    @order = Order.find(params[:id])
+
+    if @order.update(order_params)
+        redirect_to orders_path, notice:'注文ステータスを変更しました。'
+    end
+  end
+
   def confirm
     @order = current_user.orders.new(order_params)
     @book = @order.book
@@ -37,6 +45,6 @@ class OrdersController < ApplicationController
 
   private
     def order_params
-      params.require(:order).permit(:book_id, :address, :quantity)
+      params.require(:order).permit(:book_id, :address, :quantity, :status)
     end
 end

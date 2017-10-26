@@ -31,7 +31,7 @@
   </div>
   
   <div class="field">
-    <p>ステータス:<%= @order.status %></p>
+    <p>ステータス:<%= form.select :status, Order.statuses.keys.to_a, {} %></p>
   </div>
   
   <div class="actions">
