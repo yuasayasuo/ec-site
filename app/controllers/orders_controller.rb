@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+
+  def index
+    @orders = Order.all
+  end
+
   def new
     @book = Book.find(params[:book_id])
     @order = current_user.orders.new(book: @book)
