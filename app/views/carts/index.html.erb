@@ -1,0 +1,17 @@
+<h1>カート内容一覧</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>商品</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
