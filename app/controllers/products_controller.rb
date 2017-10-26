@@ -20,16 +20,9 @@ class ProductsController < ApplicationController
  
     def add_to_cart
       cart_contents = session[:book_ids]
-      
-      if cart_contents.nil?
-        cart_contents = Array.new
-      else
-        if cart_contents.include?(params[:id]) == false
-          cart_contents.push(params[:id])
-        end
-      end
-      
-      session[:book_ids] = cart_contents
+      cart_contents = [] if cart_contents.blank?
+      cart_contents.push(params[:id])
+      session[:book_ids] = cart_contents.uniq
     end
     
     def product_params

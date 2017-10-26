@@ -8,9 +8,9 @@
   </thead>
 
   <tbody>
-    <% @cart_contents.each do |id| %>
+    <% @books.each do |book| %>
       <tr>
-        <td><%= Book.all.find_by(id: id).title %></td>
+        <td><%= book.title %></td>
       </tr>
     <% end %>
   </tbody>
