@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     if @order.update(order_params)
-        redirect_to orders_path, notice:'注文ステータスを変更しました。'
+      redirect_to orders_path, notice:'注文ステータスを変更しました。'
     end
   end
 
