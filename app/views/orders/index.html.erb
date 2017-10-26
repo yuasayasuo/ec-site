@@ -26,7 +26,7 @@
         <td><%= Book.all.find_by(id: order.book_id).title %></td>
         <td><%= order.quantity %></td>
         <td><%= order.status %></td>
-        <td></td>
+        <td><%= link_to '編集', edit_order_path(order) %></td>
       </tr>
     <% end %>
   </tbody>

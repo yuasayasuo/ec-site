@@ -26,6 +26,10 @@ class OrdersController < ApplicationController
     end
   end
   
+  def edit
+    @order = Order.find(params[:id])
+  end
+  
   def confirm
     @order = current_user.orders.new(order_params)
     @book = @order.book
