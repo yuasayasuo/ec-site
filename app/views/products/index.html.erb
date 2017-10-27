@@ -1,0 +1,52 @@
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>商品一覧</h1>
+
+<h2>検索条件</h2>
+<%= search_form_for @q, url: products_path do |form| %>
+<table>
+  <tr>
+    <th><%= Book.human_attribute_name('title') %></th>
+    <td><%= form.text_field :title_cont %></td>
+  </tr>
+  <tr>
+    <th><%= Book.human_attribute_name('author') %></th>
+    <td><%= form.text_field :author_cont %></td>
+  </tr>
+  <tr>
+    <th><%= Book.human_attribute_name('price') %></th>
+    <td><%= form.number_field :price_gteq %> ～ <%= form.number_field :price_lteq %></td>
+  </tr>
+</table>
+<%= form.submit '検索' %>
+<% end %>
+
+<h2>検索結果</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :title, Book.human_attribute_name('title')) %></th>
+      <th><%= sort_link(@q, :author, Book.human_attribute_name('author')) %></th>
+      <th><%= sort_link(@q, :published_on, Book.human_attribute_name('published_on')) %></th>
+      <th><%= sort_link(@q, :price, Book.human_attribute_name('price')) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.published_on %></td>
+        <td><%= book.price %></td>
+        <td><%= link_to t('.show'), product_path(book.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @products %>

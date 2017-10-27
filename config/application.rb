@@ -17,5 +17,7 @@ module EcSite
     
     # タイムゾーン設定
     config.time_zone = 'Tokyo'
+    
+    config.generators.system_tests = nil
   end
 end

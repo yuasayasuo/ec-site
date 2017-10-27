@@ -203,3 +203,55 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  books:
+    default: &default
+      new: 新規作成
+      edit: 編集
+      show: 詳細
+      destroy: 削除
+      back: 戻る
+      logout: ログアウト
+      confirm: 本当に削除しますか？
+    index:
+      <<: *default
+      title: 商品一覧
+    show:
+      <<: *default
+    new:
+      <<: *default
+      title: 新規作成画面
+    edit:
+      <<: *default
+      title: 編集画面
+    create:
+      success: 商品を新規作成しました
+    update:
+      success: 商品を更新しました
+    destroy:
+      success: 商品を削除しました
+  tags:
+    default: &default
+      new: 新規作成
+      edit: 編集
+      show: 詳細
+      destroy: 削除
+      back: 戻る
+      logout: ログアウト
+      confirm: 本当に削除しますか？
+    index:
+      <<: *default
+      title: タグ一覧
+    show:
+      <<: *default
+    new:
+      <<: *default
+      title: 新規作成画面
+    edit:
+      <<: *default
+      title: 編集画面
+    create:
+      success: タグを新規作成しました
+    update:
+      success: タグを更新しました
+    destroy:
+      success: タグを削除しました

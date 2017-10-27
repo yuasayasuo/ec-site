@@ -1,0 +1,43 @@
+<%= form_with(model: @order, local: true, url: delivery_path(@order.id)) do |form| %>
+  <% if @order.errors.any? %>
+    <div class="card border-danger">
+      <div class="card-header bg-danger text-white">
+        <%= pluralize(@order.errors.count, "error") %> prohibited this book from being saved:
+      </div>
+      <div class="card-body">
+        <ul class="mb-0">
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <p>ユーザ:<%= User.all.find_by(id: @order.user_id).email %></p>
+  </div>
+  
+  <div class="field">
+    <p>お届け先:<%= @order.address %></p>
+  </div>
+  
+  <div class="field">
+    <p>商品:<%= Book.all.find_by(id: @order.book_id).title %></p>
+  </div>
+
+  <div class="field">
+    <p>数量:<%= @order.quantity %></p>
+  </div>
+  
+  <div class="field">
+    <p>ステータス:<%= form.select :status, Order.statuses.keys.to_a, {} %></p>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit '変更' %>
+  </div>
+  
+<% end %>
+
+<%= link_to t('.back'), deliveries_path %>
