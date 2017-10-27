@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   
   def index
     @q = Book.ransack params[:q]
-    @products = @q.result
+    @products = @q.result.page(params[:page]).per(3)
   end
 
   def show
