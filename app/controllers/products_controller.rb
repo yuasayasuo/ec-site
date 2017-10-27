@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
   before_action :add_to_cart, only: [:update]
   
   def index
-    @books = Book.all
+    @q = Book.ransack params[:q]
+    @products = @q.result
   end
 
   def show
