@@ -35,9 +35,9 @@
 
 <br>
 
-<%= link_to t('.back'), products_path %>
+<%= link_to 'カートに入れる', product_path(book_id:@book), method: :put %>
 
 <br>
 
-<%= link_to '注文する', new_order_path(book_id:@book) %>
-<%= link_to 'カートに入れる', product_path(book_id:@book), method: :put %>
+<%= link_to t('.back'), products_path %>
+
